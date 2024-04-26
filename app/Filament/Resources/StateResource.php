@@ -23,9 +23,13 @@ class StateResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('country_id')
-                    ->required()
-                    ->numeric(),
+                Forms\Components\Select::make('country_id')
+                    ->options([
+                        'active' => 'Active',
+                        'inactivr' => 'Inactive',
+                    ])
+                    ->native(true)
+                    ->required(), 
             ]);
     }
 

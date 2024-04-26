@@ -36,8 +36,11 @@ class EmployeeResource extends Resource
                     ->required()
                     ->maxLength(255),
 
-                ]),
-                Forms\Components\TextInput::make('country_id')
+                ])-> columns(3),
+                Forms\Components\Section::make('Location')
+                ->description('location details')
+                ->schema([
+                    Forms\Components\TextInput::make('country_id')
                     ->required()
                     ->numeric(),
                 Forms\Components\TextInput::make('state_id')
@@ -48,18 +51,29 @@ class EmployeeResource extends Resource
                     ->numeric(),
                 Forms\Components\TextInput::make('department_id')
                     ->required()
-                    ->numeric(),               
-                Forms\Components\TextInput::make('address')
+                    ->numeric(),  
+
+                ])-> columns(3),
+                Forms\Components\Section::make('Address details here')
+                ->description('address details here')
+                ->schema([
+                    Forms\Components\TextInput::make('address')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('zip_code')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\DatePicker::make('date_of_birth')
+
+                ])-> columns(2),
+                Forms\Components\Section::make('Dates')
+                ->description('date details')
+                ->schema([
+                    Forms\Components\DatePicker::make('date_of_birth')
                     ->required(),
                 Forms\Components\DatePicker::make('date_hired')
-                    ->required()
-                    ->columnSpanFull(),
+                    ->required(),
+                ])-> columns(2),
+
             ])-> columns(2);
     }
 

@@ -5,10 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Country extends Model
+class Message extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
+        'sender_id',
+        'receiver_id',
+        'content',
     ];
+
 }
